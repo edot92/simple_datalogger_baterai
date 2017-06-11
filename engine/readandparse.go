@@ -36,7 +36,7 @@ func BukaPort() (bool, string, error) {
 	var (
 		// address  string
 		baudrate int
-		databits int
+		// databits int
 	)
 	ports, err := serial.GetPortsList()
 	if err != nil {
@@ -51,11 +51,11 @@ func BukaPort() (bool, string, error) {
 	}
 
 	baudrate = 9600
-	databits = 8
-	_ = databits
+	// databits = 8
+	// _ = databits
 	config := &serial.Mode{
 		BaudRate: baudrate,
-		DataBits: databits,
+		// DataBits: databits,
 		Parity:   serial.NoParity,
 		StopBits: serial.OneStopBit,
 	}
@@ -64,7 +64,7 @@ func BukaPort() (bool, string, error) {
 	// serMode.
 	for _, port := range ports {
 		fmt.Printf("Found port on: %v\n", port)
-		ComPilihan = port
+		// ComPilihan = port
 	}
 	PortOpen, err = serial.Open(ComPilihan, config)
 	if err != nil {

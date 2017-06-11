@@ -17,9 +17,6 @@ func main() {
 	beego.BConfig.Listen.HTTPPort = 8080
 	beego.BConfig.WebConfig.TemplateLeft = "<%"
 	beego.BConfig.WebConfig.TemplateRight = "%>"
-	// beego.SetStaticPath("/static", "static")
-	// beego.SetStaticPath("/webui", "webui")
-	// beego.SetStaticPath("/static", "webui/static")
 	beego.SetStaticPath("/", "webui")
 
 	beego.SetStaticPath("api", "swagger")

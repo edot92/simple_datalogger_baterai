@@ -1,0 +1,12 @@
+.DS_Store
+clientside/npm-debug.log*
+clientside/yarn-debug.log*
+clientside/yarn-error.log*
+.vscode
+clientside/node_modules
+debug
+*.tmp
+build
+clientside/dist
+lastupdate.tmp
+conf/app.conf
