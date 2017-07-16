@@ -4,11 +4,15 @@ import (
 	"errors"
 	"fmt"
 	"time"
+
+	"github.com/metakeule/fmtdate"
 )
 
 // SimpanData ..
 func SimpanData(datanya DataSerial) error {
-
+	date := fmtdate.Format("YYYY-MM-DD hh:mm:ss", time.Now())
+	date = date + ".000000000+07:00"
+	// date = date + ".000"
 	var temp = DataSerialDB{
 		Busvoltage:   datanya.Busvoltage,
 		Current:      datanya.Current,
@@ -16,7 +20,8 @@ func SimpanData(datanya DataSerial) error {
 		Loadvoltage:  datanya.Loadvoltage,
 		Shuntvoltage: datanya.Shuntvoltage,
 		Temperature:  datanya.Temperature,
-		UpdateAt:     time.Now().String(),
+		CreatedAt:    date,
+		UpdateAt:     date,
 	}
 	// db.Create(&animal)
 	errr := KonDB.Create(&temp).GetErrors()

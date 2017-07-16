@@ -29,6 +29,8 @@
     "vue-axios": "^2.0.2",
     "vue-cookie": "^1.1.4",
     "vue-date-picker": "^1.0.2",
+    "vue-js-toggle-button": "^1.1.2",
+    "vue-json-excel": "0.0.4",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.2.0",
     "vue-strap": "github:wffranco/vue-strap",

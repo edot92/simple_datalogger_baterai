@@ -4,7 +4,8 @@ import VueRouter from 'vue-router'
 
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-axios.defaults.baseURL = ':8080/v1'
+// axios.defaults.baseURL = '/v1'
+axios.defaults.baseURL = 'http://localhost:8080/v1'
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN
 
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
@@ -40,6 +41,8 @@ var router = new VueRouter({
     return savedPosition || { x: 0, y: 0 }
   }
 })
+import ToggleButton from 'vue-js-toggle-button'
+Vue.use(ToggleButton)
 
 // Some middleware to help us ensure the user is authenticated.
 router.beforeEach((to, from, next) => {
