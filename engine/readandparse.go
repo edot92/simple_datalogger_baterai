@@ -21,6 +21,13 @@ type DataSerial struct {
 	Loadvoltage  float32
 }
 
+// {"Temperature":"0",
+// "Humidity":0,
+// "Busvoltage":"12.35",
+// "Shuntvoltage":"0.81",
+// "Loadvoltage":"12.35",
+// "Current":"7.90"}
+
 // ser serial
 var PortOpen serial.Port
 

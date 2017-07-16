@@ -30,7 +30,7 @@
       <div class="row">
       <div class="col-md-4">
           <div class="form-group">
-              <label class="control-label col-sm-5" for="pwd">Arus (Ampere):</label>
+              <label class="control-label col-sm-5" for="pwd">Arus (miliAmpere]):</label>
               <div class="col-sm-6">
                   <input disabled type="text" class="form-control" v-model="Current" placeholder="???">
               </div>
@@ -220,13 +220,15 @@ export default{
       thisVue.Temperature = response.data.data.temperature
       thisVue.Humidity = response.data.data.humidity
       if (response.data.data.current < 0) {
-        response.data.data.current = response.data.data.current * -1
+        // response.data.data.current = response.data.data.current * -1
+        response.data.data.current = 0
       }
       thisVue.Current = response.data.data.current
       thisVue.Shuntvoltage = response.data.data.shuntvoltage
       thisVue.Busvoltage = response.data.data.busvoltage
       thisVue.Loadvoltage = response.data.data.loadvoltage
-      thisVue.Daya = parseFloat(thisVue.Current) * parseFloat(thisVue.Loadvoltage)
+      thisVue.Daya = (parseFloat(thisVue.Loadvoltage) * 0.001)
+      thisVue.Daya = thisVue.Daya * parseFloat(thisVue.Current)
       if (thisVue.autoUpdateChart === true) {
         $.event.trigger({
           type: 'updatedValue',

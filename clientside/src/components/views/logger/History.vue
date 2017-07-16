@@ -1,7 +1,6 @@
 <template lang="html">
 <div id="history" class="content">
   <form action="" method="#" class="form-horizontal" role="form">
-
       <div class="form-group">
           <label class="control-label col-sm-2" for="pwd">Range Waktu:</label>
           <div class="col-sm-10">
@@ -80,125 +79,13 @@ export default {
     return {
       json_fields: {
         'id': 'String',
-        'temperature': 'String',
-        'humidity': 'String',
-        'current': 'String',
-        // 'shuntvoltage':'String',
-        // 'busvoltage':'String',
-        'loadvoltage': 'String',
+        'temperature': 'Float',
+        'humidity': 'Float',
+        'current': 'Float',
+        'loadvoltage': 'Float',
         'created_at': 'String'
       },
       json_data: [
-        {
-          'id': 8903,
-          'temperature': 28.5,
-          'humidity': 90.4,
-          'current': -0.3,
-          // 'shuntvoltage': -0.02,
-          // 'busvoltage': 0.98,
-          'loadvoltage': 0.98,
-          'created_at': '2017-07-16 00:18:08.000000000+07:00',
-          'update_at': '2017-07-16 00:18:08.000000000+07:00'
-        }
-        // {
-        //   'ID': 8904,
-        //   'temperature': 28.5,
-        //   'humidity': 90.4,
-        //   'current': -0.1,
-        //   'shuntvoltage': 0.01,
-        //   'busvoltage': 0.92,
-        //   'loadvoltage': 0.92,
-        //   'created_at': '2017-07-16 00:18:10.000000000+07:00',
-        //   'update_at': '2017-07-16 00:18:10.000000000+07:00'
-        // },
-        // {
-        //   'ID': 8905,
-        //   'temperature': 28.5,
-        //   'humidity': 90.3,
-        //   'current': -0.2,
-        //   'shuntvoltage': -0.02,
-        //   'busvoltage': 0.99,
-        //   'loadvoltage': 0.99,
-        //   'created_at': '2017-07-16 00:18:13.000000000+07:00',
-        //   'update_at': '2017-07-16 00:18:13.000000000+07:00'
-        // },
-        // {
-        //   'ID': 8906,
-        //   'temperature': 28.5,
-        //   'humidity': 90.3,
-        //   'current': -0.2,
-        //   'shuntvoltage': 0.02,
-        //   'busvoltage': 0.92,
-        //   'loadvoltage': 0.92,
-        //   'created_at': '2017-07-16 00:18:15.000000000+07:00',
-        //   'update_at': '2017-07-16 00:18:15.000000000+07:00'
-        // },
-        // {
-        //   'ID': 8907,
-        //   'temperature': 28.5,
-        //   'humidity': 90.4,
-        //   'current': -0.2,
-        //   'shuntvoltage': -0.01,
-        //   'busvoltage': 0.98,
-        //   'loadvoltage': 0.98,
-        //   'created_at': '2017-07-16 00:18:17.000000000+07:00',
-        //   'update_at': '2017-07-16 00:18:17.000000000+07:00'
-        // },
-        // {
-        //   'ID': 8908,
-        //   'temperature': 28.5,
-        //   'humidity': 90.4,
-        //   'current': -0.2,
-        //   'shuntvoltage': 0,
-        //   'busvoltage': 0.98,
-        //   'loadvoltage': 0.98,
-        //   'created_at': '2017-07-16 00:18:20.000000000+07:00',
-        //   'update_at': '2017-07-16 00:18:20.000000000+07:00'
-        // },
-        // {
-        //   'ID': 8909,
-        //   'temperature': 28.5,
-        //   'humidity': 90.4,
-        //   'current': 0.1,
-        //   'shuntvoltage': -0.02,
-        //   'busvoltage': 0.98,
-        //   'loadvoltage': 0.98,
-        //   'created_at': '2017-07-16 00:18:22.000000000+07:00',
-        //   'update_at': '2017-07-16 00:18:22.000000000+07:00'
-        // },
-        // {
-        //   'ID': 8910,
-        //   'temperature': 28.5,
-        //   'humidity': 90.4,
-        //   'current': -0.5,
-        //   'shuntvoltage': 0,
-        //   'busvoltage': 0.94,
-        //   'loadvoltage': 0.94,
-        //   'created_at': '2017-07-16 00:18:24.000000000+07:00',
-        //   'update_at': '2017-07-16 00:18:24.000000000+07:00'
-        // },
-        // {
-        //   'ID': 8911,
-        //   'temperature': 28.5,
-        //   'humidity': 90.5,
-        //   'current': -0.2,
-        //   'shuntvoltage': -0.05,
-        //   'busvoltage': 0.92,
-        //   'loadvoltage': 0.92,
-        //   'created_at': '2017-07-16 00:18:27.000000000+07:00',
-        //   'update_at': '2017-07-16 00:18:27.000000000+07:00'
-        // },
-        // {
-        //   'ID': 8912,
-        //   'temperature': 28.5,
-        //   'humidity': 90.5,
-        //   'current': -0.3,
-        //   'shuntvoltage': -0.02,
-        //   'busvoltage': 1,
-        //   'loadvoltage': 1,
-        //   'created_at': '2017-07-16 00:18:29.000000000+07:00',
-        //   'update_at': '2017-07-16 00:18:29.000000000+07:00'
-        // }
       ],
       columns: [
         'id',
@@ -233,24 +120,24 @@ export default {
       })
         .then(function (response) {
           // thisVue.tableData =[]
+          console.log(response)
           for (var i = 0; i < response.data.data.length; i++) {
-            response.data.data[i].id = i + 1
+            if (response.data.data[i].current < 0) {
+              // response.data.data.current = response.data.data.current * -1
+              response.data.data[i].current = 0
+            }
+            response.data.data[i].ID = i + 1
             response.data.data[i].created_at = moment(moment(response.data.data[i].created_at).toString()).format('DD-MM-YYYY HH:mm:ss')
-            // response.data.data[i].loadvoltage = null
-            // response.data.data[i].shuntvoltage = null
-            // json csv
-            // thisVue.json_data[i].busvoltage = response.data.data[i].busvoltage
-            // thisVue.json_data[i].created_at = response.data.data[i].created_at
-            // thisVue.json_data[i].current = response.data.data[i].current
-            // thisVue.json_data[i].humidity = response.data.data[i].humidity
-            // thisVue.json_data[i].id = response.data.data[i].id
-            // thisVue.json_data[i].loadvoltage = response.data.data[i].loadvoltage
-            // // thisVue.json_data[i].shuntvoltage = response.data.data[i].shuntvoltage
-            // thisVue.json_data[i].temperature = response.data.data[i].temperature
-                        // response.data.data[i].ID = null
+            response.data.data[i].busvoltage = ''
+            response.data.data[i].shuntvoltage = ''
+            response.data.data[i].update_at = ''
+            delete response.data.data[i].busvoltage
+            delete response.data.data[i].shuntvoltage
+            delete response.data.data[i].update_at
           }
-          thisVue.tableData = response.data.data
-          thisVue.json_data = thisVue.tableData
+
+          thisVue.json_data = {}
+          thisVue.json_data = response.data.data
         }).catch(function (error) {
           console.log(error)
         })

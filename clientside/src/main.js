@@ -4,20 +4,24 @@ import VueRouter from 'vue-router'
 
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-// axios.defaults.baseURL = '/v1'
-axios.defaults.baseURL = 'http://localhost:8080/v1'
+if (process.env.NODE_ENV === 'development') {
+  axios.defaults.baseURL = 'http://localhost:8080/v1'
+} else {
+  axios.defaults.baseURL = '/v1'
+}
+// axios.defaults.baseURL = 'http://localhost:8080/v1'
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN
-
-// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+// axios.defaults.headers.post['Content-Type'] =
+// 'application/x-www-form-urlencoded'
 // axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
 Vue.use(VueAxios, axios)
 
-import { sync } from 'vuex-router-sync'
+import {sync} from 'vuex-router-sync'
 import routes from './routes'
 import store from './store'
 
 // Import Helpers for filters
-import { domain, count, prettyDate, pluralize } from './filters'
+import {domain, count, prettyDate, pluralize} from './filters'
 
 // Import Views - Top level
 import AppView from './components/App.vue'
@@ -38,7 +42,10 @@ var router = new VueRouter({
   routes: routes,
   mode: 'history',
   scrollBehavior: function (to, from, savedPosition) {
-    return savedPosition || { x: 0, y: 0 }
+    return savedPosition || {
+      x: 0,
+      y: 0
+    }
   }
 })
 import ToggleButton from 'vue-js-toggle-button'
@@ -48,15 +55,21 @@ Vue.use(ToggleButton)
 router.beforeEach((to, from, next) => {
   // window.console.log('Transition', transition)
   if (to.auth && (to.router.app.$store.state.token === 'null')) {
-    window.console.log('Not authenticated')
+    window
+      .console
+      .log('Not authenticated')
     next({
       path: '/login',
-      query: { redirect: to.fullPath }
+      query: {
+        redirect: to.fullPath
+      }
     })
   } else if (to.path === '/') {
     next({
       path: 'realtime',
-      query: { redirect: to.fullPath }
+      query: {
+        redirect: to.fullPath
+      }
     })
   } else {
     next()
@@ -76,7 +89,9 @@ new Vue({
 
 // Check local storage to handle refreshes
 if (window.localStorage) {
-  var localUserString = window.localStorage.getItem('user') || 'null'
+  var localUserString = window
+    .localStorage
+    .getItem('user') || 'null'
   var localUser = JSON.parse(localUserString)
 
   if (localUser && store.state.user !== localUser) {

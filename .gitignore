@@ -6,7 +6,6 @@ clientside/yarn-error.log*
 clientside/node_modules
 debug
 *.tmp
-build
 clientside/dist
 lastupdate.tmp
 conf/app.conf
